@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -256,6 +257,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5ec561bdfae4697bfbe45262ad8b6ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Logic.Camera.CameraFollow
+  _smoothTime: 0.25
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,6 +384,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07bd387653184e78bccaf7d9c1fdfea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Logic.Installers.GameplayInstaller
+  _playerShip: {fileID: 1993663049}
+  _cameraFollow: {fileID: 519420033}
 --- !u!114 &783413074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -748,8 +764,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5183bc89ea55e54f9dd0252330f1ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Logic.Gameplay.PlayerShip
-  _rotateSpeed: 0
-  _moveSpeed: 0
+  _rotateSpeed: 150
+  _moveAcceleration: 20
+  _maxSpeed: 8
 --- !u!4 &1993663050
 Transform:
   m_ObjectHideFlags: 0
@@ -779,9 +796,9 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_LinearDamping: 3
+  m_AngularDamping: 2
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -801,6 +818,6 @@ SceneRoots:
   - {fileID: 1833749063}
   - {fileID: 1021032757}
   - {fileID: 783413075}
-  - {fileID: 1857116307}
   - {fileID: 519420032}
+  - {fileID: 1857116307}
   - {fileID: 1993663050}
